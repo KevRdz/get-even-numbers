@@ -1,33 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [startData, setStartData] = useState(0)
+  const [EndData, setEndData] = useState(0)
+
+  const handleStartChange = (evt) => {
+    setStartData(evt.target.value)
+  }
+
+  const handleEndChange = (evt) => {
+    setEndData(evt.target.value)
+  }
 
   return (
     <>
+      <h1>Enter start and end digit</h1>
+      <div className='start-digit'>
+        <label htmlFor="start">Start Number</label>
+        <input type="number" id='start' onChange={handleStartChange}/>
+      </div>
+      <div className='end-digit'>
+        <label htmlFor="end">End Number</label>
+        <input type="number" id='end' onChange={handleEndChange}/>
+      </div>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <button>Enter</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2>{formData}</h2>
     </>
   )
 }
